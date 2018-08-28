@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-
+import Menu from "../components/menu";
 import Header from '../components/header'
 import './index.css'
 
@@ -10,11 +10,12 @@ const Layout = ({ children, data }) => (
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'Sample Website for Gatsby' },
+        { name: 'keywords', content: 'gatsby, react' },
       ]}
     />
     <Header siteTitle={data.site.siteMetadata.title} />
+    <Menu/>
     <div
       style={{
         margin: '0 auto',
@@ -34,7 +35,7 @@ Layout.propTypes = {
 
 export default Layout
 
-export const query = graphql`
+export const query = graphql `
   query SiteTitleQuery {
     site {
       siteMetadata {
